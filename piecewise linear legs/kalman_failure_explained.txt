@@ -1,0 +1,22 @@
+The core failure is simple:
+
+This is a smoothed derivative classifier with adaptive quantile gates. It is not a robust leg detector.
+
+Its hidden promise is:
+“Give me any run, and I will always find some directional bars.”
+
+That is why it still fails after being “optimized.” The optimization is cosmetic. It tunes the noise labeling mechanism instead of changing the objective.
+
+The most damaging line of thought in this design is:
+top x% of internal slope z-scores = real legs
+
+That premise is wrong.
+
+What this code does is:
+“Partition the price series into locally confident positive, negative, and neutral slope regimes.”
+
+That is not the same as extracting meaningful legs.
+
+The next sensible rewrite is to define legs with an external notion of significance first, 
+such as minimum realized displacement, persistence, and tolerance for brief counter-moves, 
+and only then use a smoother like Kalman as a support signal rather than as the leg definition itself.
