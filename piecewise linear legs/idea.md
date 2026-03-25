@@ -1,5 +1,7 @@
 Change-point segmentation on slope (piecewise linear legs)
 
+NOTE - this will become a FAILURE. Documenting. The method can be useful for something else.
+
 Idea
 Price is modeled as piecewise linear with noise. Legs are segments with relatively stable slope. A zigzag turn is a change in slope sign and magnitude.
 
